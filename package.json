@@ -1,0 +1,31 @@
+{
+  "name": "tailwind-color-util",
+  "version": "1.0.0",
+  "description": "Get RGB/RGBA color from tailwind color name (blue-100, blue-200...)",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": ["lib"],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ntanvinh/tailwind-colors.git"
+  },
+  "keywords": [
+    "tailwind",
+    "colors",
+    "rgb",
+    "rgba"
+  ],
+  "author": "Vinh Nguyen Tan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ntanvinh/tailwind-colors/issues"
+  },
+  "homepage": "https://github.com/ntanvinh/tailwind-colors#readme",
+  "devDependencies": {
+    "typescript": "^5.0.4"
+  }
+}
