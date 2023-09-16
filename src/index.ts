@@ -266,7 +266,6 @@ enum TwRgb {
   'rose-800' = 'rgb(159 18 57)',
   'rose-900' = 'rgb(136 19 55)',
   'rose-950' = 'rgb(76 5 25)',
-
 }
 
 type TwColorType = keyof typeof TwRgb;
@@ -280,5 +279,24 @@ export function twRgba(color: TwColorType, opacity: TwOpacityType) {
   const twColor = twRgb(color);
   return twColor.replace('rgb', 'rgba')
     .replace(/\s/g, ',')
-    .replace(')', `,${opacity})`);
+    .replace(')', `,${ opacity })`);
+}
+
+export function twHex(color: TwColorType) {
+  const twColor = twRgb(color);
+  if (color === "transparent") {
+    return rgbToHex(255, 255, 255);
+  }
+  const stripedColors = twColor.replace("rgb(", "").replace(")", "");
+  const nums = stripedColors.split(" ").map(numStr => +numStr);
+  return rgbToHex(nums[0], nums[1], nums[2]);
+}
+
+function numToHex(c: number) {
+  const hex = c.toString(16);
+  return hex.length == 1 ? "0" + hex : hex;
+}
+
+function rgbToHex(r: number, g: number, b: number) {
+  return "#" + numToHex(r) + numToHex(g) + numToHex(b);
 }
